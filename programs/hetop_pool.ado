@@ -84,14 +84,6 @@ program define Estimate , eclass sortpreserve
 		restore
 	}
 
-/*
-	if "`mean'" == "" {
-
-	}
-	if "`lnsigma'" == "" {
-
-	}
-*/
 	ml model lf hetop_pool_lf (mean: `mean') (lnsigma: `lnsigma') if `touse' , ///
 		maximize title("hetop_pool estimation") `mlopts' search
 
