@@ -101,10 +101,16 @@ A single "cell" consists of the K rows representing all frequency counts for a s
 The scale of the estimates is determined by the cutscores provided in {it:kappa}.
 
 {pstd}
-Various undocumented options can be passed to {bf: hetop_pool} that will be parsed by -mlopts-.
+{cmd:hetop_pool} relies on a user-written ML function (hetop_pool_lf.ado) to carry out the ML estimation using Stata's ml features.
 
 {pstd}
-No checks are conducted by {bf: hetop_pool} as to whether there are sufficient data to identify and estimate the intended parameters specified. This must be established by the user.
+Various undocumented options can be passed to {cmd: hetop_pool} that will be parsed by -mlopts-.
+
+{pstd}
+Postestimation prediction of group means and standard deviations can be carried out using the user-written predict function (hetop_pool_p.ado). See below.
+
+{pstd}
+No checks are conducted by {cmd: hetop_pool} as to whether there are sufficient data to identify and estimate the intended parameters specified. This must be established by the user.
 
 {marker options}{...}
 {title:Options}
