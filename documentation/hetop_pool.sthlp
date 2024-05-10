@@ -108,7 +108,6 @@ No checks are conducted by {bf: hetop_pool} as to whether there are sufficient d
 
 {marker options}{...}
 {title:Options}
-{dlgtab:Main}
 
 {phang}
 {opt k(varname)}  
@@ -137,6 +136,26 @@ If supplied, the variable {it:checkby} indicates which set of rows go together t
 {opt *} 
 Specify additional ML options that will be handled by -mlopts-.
 
+{title:Syntax of predict}
+
+{p 4 4}
+The syntax of {cmd:predict} following {cmd:hetop_pool} is
+
+{p 8 15 2}{cmd:predict} {it:newvar} , {it:statistic} [ {it:se} ]
+
+{pstd} The predicted values will be stored in the variable {it:newvar}. {it:Note:} the predicted values are constant within each cell and will thus be repeated in the long form data used for estimation.
+
+{pstd}
+Where {it:statistic} must be specified and can be 
+
+{p 8 25}{cmd:mean}{space 11}predicted means{p_end}
+{p 8 25}{cmd:sigma}{space 10}predicted standard deviations{p_end}
+
+{pstd}
+{title:Options for predict}
+
+{p 8 25}{cmd:se}, if specified standard errors for the predictions will be included and saved in the variable {it:newvar_se}{p_end}
+
 {marker examples}{...}
 {title:Examples}
 
@@ -156,10 +175,6 @@ hetop_pool y fcount , mean(ibn.cell, nocons) lnsigma(grade year) ///
 * associated standard errors (mstar_se and sstar_se) for each cell using -predict-:
 predict mstar , mean se
 predict sstar , sigma se
-
-* Note: the predicted values are constant within each cell and will be repeated 
-* in the long form data used for estimation
-
 
 {title:Stored results}
 
@@ -193,6 +208,4 @@ Shear, B. R., & Reardon, S. F. (2021). Using pooled heteroskedastic ordered prob
 Benjamin R. Shear{break}
 University of Colorado Boulder{break}
 benjamin.shear@colorado.edu{break}
-
-
 
